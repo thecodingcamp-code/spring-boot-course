@@ -11,7 +11,7 @@ import java.util.Optional;
 public class TicketService {
     private final TicketRepository ticketRepository;
 
-    public TicketService(@Qualifier("demoTicketRepository") TicketRepository ticketRepository) {
+    public TicketService(TicketRepository ticketRepository) {
         this.ticketRepository = ticketRepository;
     }
 

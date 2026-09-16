@@ -1,18 +1,18 @@
 package com.example.support;
 
+import java.time.Instant;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
-
-import java.time.Instant;
 
 @Configuration
 public class RepositoryConfig {
 
     @Bean
     @Primary
-    public TicketRepository inMemoryTicketRepository() {
-        return new InMemoryTicketRepository();
+    public TicketRepository jpaTicketRepository(TicketEntityRepository entityRepository) {
+        return new JpaTicketRepository(entityRepository);
     }
 
     @Bean
