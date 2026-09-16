@@ -1,0 +1,43 @@
+### Create a ticket
+POST http://localhost:8080/tickets
+Content-Type: application/json
+
+{
+  "title": "Can't log in after password reset",
+  "description": "I reset my password this morning using the email link, but the login page still says my credentials are invalid."
+}
+
+### Create a second ticket
+POST http://localhost:8080/tickets
+Content-Type: application/json
+
+{
+  "title": "Invoice shows the wrong billing address",
+  "description": "Our latest invoice still lists the old office address. We updated it in account settings two weeks ago."
+}
+
+### List all tickets
+GET http://localhost:8080/tickets
+
+### Get one ticket
+GET http://localhost:8080/tickets/1
+
+### Get a ticket that doesn't exist
+GET http://localhost:8080/tickets/99
+
+### Try to set internal fields
+POST http://localhost:8080/tickets
+Content-Type: application/json
+
+{
+  "id": 500,
+  "title": "Report export to CSV times out",
+  "description": "Exporting the monthly report fails after about 30 seconds with a timeout message.",
+  "status": "RESOLVED"
+}
+
+### Count tickets (challenge)
+GET http://localhost:8080/tickets/count
+
+### Dashboard summary
+GET http://localhost:8080/dashboard/summary
